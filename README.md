@@ -7,5 +7,5 @@ This is a placeholder repo while the code is being cleaned up
 
 ## Architecture
 
-[![Architecture diagram](img/architecture.png)](img/architecture.pdf)
+![Architecture diagram](img/architecture.png)
 _Representation-agnostic architecture (a), with interchangeable instance representation blocks (b). The framework can learn and predict any representation from its pool._
