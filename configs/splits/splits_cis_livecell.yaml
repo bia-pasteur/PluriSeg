@@ -1,0 +1,11 @@
+dataset_root: data/livecell
+dataset_name: cis_livecell
+train_dir: train
+test_dir: test
+val_fraction: 0.1
+seed: 0
+image_pattern: "*_img.tif"
+label_pattern: "*_masks.tif"
+image_regex: "([0-9]+)_img\\.tif"
+label_regex: "([0-9]+)_masks\\.tif"
+dedup: true

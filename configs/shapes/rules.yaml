@@ -1,0 +1,32 @@
+# Manual shape rules, passed as --rules_file to pluriseg shape_metrics compute.
+# Each entry is a ShapeRule: name + feature -> (lo, hi) bounds, null = open.
+# First matching rule wins; rows matching none get "other".
+# Valid feature keys: the INVARIANT_FEATURES (eccentricity, solidity, extent,
+# circularity, elongation, convexity, aspect_ratio, inertia_eig_ratio,
+# hu0..hu6), SCALE_FEATURES (area, perimeter, equivalent_diameter,
+# feret_diameter) and their log_* counterparts.
+- name: multi_component
+  # components are counted after a 2-px binary closing (gaps <= ~4 px
+  # fuse), so only genuinely separated objects count; every satellite
+  # must also cover >= 5% of the instance area, so specks off the side
+  # don't count
+  features:
+    num_components: [2, null]
+    min_comp_rel_size: [0.10, null]
+- name: worm_like
+  features:
+    inscribed_disk_frac: [null, 0.15]
+- name: concave # bot 5% solidity
+  features:
+    solidity: [null, 0.65]
+- name: tiny # bot 5% area
+  features:
+    log_area: [null, 4]
+- name: large # top 5% area
+  features:
+    log_area: [8, null]
+- name: round 
+  features:
+    circularity: [0.9, null]
+- name: other
+  features: {}

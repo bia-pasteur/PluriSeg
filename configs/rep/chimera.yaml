@@ -1,0 +1,25 @@
+name: chimera
+params:
+  # Per-sub-representation constructor kwargs; omitted keys use each
+  # sub-rep's defaults.
+  sub_params:
+    mask: {}
+    cellpose: {}
+    omnipose: {}
+    stardist:
+      n_rays: 32
+      dist_loss: mae
+      loss_weights: [1.0, 0.2]
+      background_reg: 1.0e-4
+    embedseg:
+      # also clamps predictions at the loss boundary (exp(10*sigma)
+      # overflows above ~8.9); null = auto-adapt to the train patch
+      # (1-px ball: 1.072 @ 256, 1.211 @ 512)
+      sigma_ceil: null
+  # Per-sub-representation weight on its total loss (default 1).
+  loss_weights:
+    mask: 1.0
+    cellpose: 1.0
+    omnipose: 1.0
+    stardist: 1.0
+    embedseg: 1.0

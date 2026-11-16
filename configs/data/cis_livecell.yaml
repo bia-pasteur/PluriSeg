@@ -1,0 +1,5 @@
+root: data/livecell
+split_name: cis_livecell
+fold: 0
+n_folds: 1
+cache_dir: pluriseg-cache

@@ -1,0 +1,5 @@
+root: data_sample/SampleDataSet
+split_name: SampleDataSet
+fold: 0
+n_folds: 1
+cache_dir: pluriseg-cache

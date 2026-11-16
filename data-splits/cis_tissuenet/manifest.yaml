@@ -1,0 +1,20 @@
+created: '2026-11-16T14:24:48.095186+00:00'
+dataset_name: cis_tissuenet
+dedup: true
+dropped_leaks: []
+image_exclude_patterns: null
+image_pattern: '*_img.tif'
+image_regex: ([0-9]+)_img\.tif
+label_exclude_patterns: null
+label_pattern: '*_masks.tif'
+label_regex: ([0-9]+)_masks\.tif
+n_folds: 1
+n_pairs: 7003
+n_test: 1311
+n_train: 5123
+n_val: 569
+scheme: 'train-test: val=0.1 of train/ (seed), test=test/'
+seed: 0
+test_dir: test
+train_dir: train
+val_fraction: 0.1

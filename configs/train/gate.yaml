@@ -1,0 +1,14 @@
+# Post-hoc gate for ChimeraRep head picking: the router trains on no gate
+# signal during fit; after fit it is refit once on ALL val images (full
+# size, no crop) scored under the frozen best checkpoint — frozen weights
+# make every scored (image, label) entry valid forever, one pass suffices.
+# Add to any training run with --gate configs/train/gate.yaml; only
+# takes effect when rep.name=chimera.
+enabled: true
+hidden: 128
+pool: stats_grid  # router input: gap | stats (GAP,GMP,std) | stats_grid (+2x2 grid means)
+tau: 0.1          # CE target temperature softmax(PQ / tau); lower = harder labels
+post_lr: 1e-3     # router refit lr (full-batch AdamW)
+post_epochs: 500  # full-batch refit epochs
+post_seeds: 3     # fresh router inits; best val routed-PQ kept
+post_val_frac: 0.2  # bank fraction held out for refit selection

@@ -1,0 +1,5 @@
+root: data/dsb2018
+split_name: cis_dsb2018
+fold: 0
+n_folds: 1
+cache_dir: pluriseg-cache

@@ -1,0 +1,36 @@
+train:
+- - train/images/0000.png
+  - train/labels/0000.png
+  - '0000'
+- - train/images/0001.png
+  - train/labels/0001.png
+  - '0001'
+- - train/images/0003.png
+  - train/labels/0003.png
+  - '0003'
+- - train/images/0004.png
+  - train/labels/0004.png
+  - '0004'
+- - train/images/0005.png
+  - train/labels/0005.png
+  - '0005'
+- - train/images/0006.png
+  - train/labels/0006.png
+  - '0006'
+val:
+- - train/images/0002.png
+  - train/labels/0002.png
+  - '0002'
+test:
+- - test/images/0007.png
+  - test/labels/0007.png
+  - test-0007
+- - test/images/0008.png
+  - test/labels/0008.png
+  - test-0008
+- - test/images/0009.png
+  - test/labels/0009.png
+  - test-0009
+- - test/images/0010.png
+  - test/labels/0010.png
+  - test-0010

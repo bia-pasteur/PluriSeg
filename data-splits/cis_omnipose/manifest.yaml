@@ -1,0 +1,146 @@
+created: '2026-11-16T14:24:02.754513+00:00'
+dataset_name: cis_omnipose
+dedup: true
+dropped_leaks:
+- dropped_id: '0121'
+  dropped_image: train/0121_img.tif
+  dropped_label: train/0121_masks.tif
+- dropped_id: '0116'
+  dropped_image: train/0116_img.tif
+  dropped_label: train/0116_masks.tif
+- dropped_id: 0086
+  dropped_image: train/0086_img.tif
+  dropped_label: train/0086_masks.tif
+- dropped_id: 0092
+  dropped_image: train/0092_img.tif
+  dropped_label: train/0092_masks.tif
+- dropped_id: '0130'
+  dropped_image: train/0130_img.tif
+  dropped_label: train/0130_masks.tif
+- dropped_id: 0084
+  dropped_image: train/0084_img.tif
+  dropped_label: train/0084_masks.tif
+- dropped_id: '0100'
+  dropped_image: train/0100_img.tif
+  dropped_label: train/0100_masks.tif
+- dropped_id: 0098
+  dropped_image: train/0098_img.tif
+  dropped_label: train/0098_masks.tif
+- dropped_id: 0095
+  dropped_image: train/0095_img.tif
+  dropped_label: train/0095_masks.tif
+- dropped_id: '0115'
+  dropped_image: train/0115_img.tif
+  dropped_label: train/0115_masks.tif
+- dropped_id: 0128
+  dropped_image: train/0128_img.tif
+  dropped_label: train/0128_masks.tif
+- dropped_id: 0091
+  dropped_image: train/0091_img.tif
+  dropped_label: train/0091_masks.tif
+- dropped_id: '0117'
+  dropped_image: train/0117_img.tif
+  dropped_label: train/0117_masks.tif
+- dropped_id: 0087
+  dropped_image: train/0087_img.tif
+  dropped_label: train/0087_masks.tif
+- dropped_id: 0090
+  dropped_image: train/0090_img.tif
+  dropped_label: train/0090_masks.tif
+- dropped_id: '0112'
+  dropped_image: train/0112_img.tif
+  dropped_label: train/0112_masks.tif
+- dropped_id: '0126'
+  dropped_image: train/0126_img.tif
+  dropped_label: train/0126_masks.tif
+- dropped_id: 0118
+  dropped_image: train/0118_img.tif
+  dropped_label: train/0118_masks.tif
+- dropped_id: 0088
+  dropped_image: train/0088_img.tif
+  dropped_label: train/0088_masks.tif
+- dropped_id: 0093
+  dropped_image: train/0093_img.tif
+  dropped_label: train/0093_masks.tif
+- dropped_id: '0331'
+  dropped_image: train/0331_img.tif
+  dropped_label: train/0331_masks.tif
+- dropped_id: 0129
+  dropped_image: train/0129_img.tif
+  dropped_label: train/0129_masks.tif
+- dropped_id: '0122'
+  dropped_image: train/0122_img.tif
+  dropped_label: train/0122_masks.tif
+- dropped_id: '0124'
+  dropped_image: train/0124_img.tif
+  dropped_label: train/0124_masks.tif
+- dropped_id: '0114'
+  dropped_image: train/0114_img.tif
+  dropped_label: train/0114_masks.tif
+- dropped_id: 0329
+  dropped_image: train/0329_img.tif
+  dropped_label: train/0329_masks.tif
+- dropped_id: '0110'
+  dropped_image: train/0110_img.tif
+  dropped_label: train/0110_masks.tif
+- dropped_id: 0096
+  dropped_image: train/0096_img.tif
+  dropped_label: train/0096_masks.tif
+- dropped_id: '0111'
+  dropped_image: train/0111_img.tif
+  dropped_label: train/0111_masks.tif
+- dropped_id: 0099
+  dropped_image: train/0099_img.tif
+  dropped_label: train/0099_masks.tif
+- dropped_id: 0119
+  dropped_image: train/0119_img.tif
+  dropped_label: train/0119_masks.tif
+- dropped_id: 0097
+  dropped_image: train/0097_img.tif
+  dropped_label: train/0097_masks.tif
+- dropped_id: '0127'
+  dropped_image: train/0127_img.tif
+  dropped_label: train/0127_masks.tif
+- dropped_id: '0333'
+  dropped_image: train/0333_img.tif
+  dropped_label: train/0333_masks.tif
+- dropped_id: '0123'
+  dropped_image: train/0123_img.tif
+  dropped_label: train/0123_masks.tif
+- dropped_id: '0132'
+  dropped_image: train/0132_img.tif
+  dropped_label: train/0132_masks.tif
+- dropped_id: 0094
+  dropped_image: train/0094_img.tif
+  dropped_label: train/0094_masks.tif
+- dropped_id: 0085
+  dropped_image: train/0085_img.tif
+  dropped_label: train/0085_masks.tif
+- dropped_id: '0113'
+  dropped_image: train/0113_img.tif
+  dropped_label: train/0113_masks.tif
+- dropped_id: 0089
+  dropped_image: train/0089_img.tif
+  dropped_label: train/0089_masks.tif
+- dropped_id: '0120'
+  dropped_image: train/0120_img.tif
+  dropped_label: train/0120_masks.tif
+- dropped_id: '0125'
+  dropped_image: train/0125_img.tif
+  dropped_label: train/0125_masks.tif
+image_exclude_patterns: null
+image_pattern: '*_img.tif'
+image_regex: ([0-9]+)_img\.tif
+label_exclude_patterns: null
+label_pattern: '*_masks.tif'
+label_regex: ([0-9]+)_masks\.tif
+n_folds: 1
+n_pairs: 713
+n_test: 275
+n_train: 394
+n_val: 44
+scheme: 'train-test: val=0.1 of train/ (seed), test=test/'
+seed: 0
+test_dir: test
+train_dir: train
+val_fraction: 0.1

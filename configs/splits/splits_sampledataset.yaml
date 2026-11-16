@@ -1,0 +1,6 @@
+dataset_root: data_sample/SampleDataSet
+image_pattern: "images/*.png"
+label_pattern: "labels/*.png"
+seed: 0
+image_regex: "([0-9]*)\\.png"
+label_regex: "([0-9]*)\\.png"

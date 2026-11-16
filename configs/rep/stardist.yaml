@@ -1,0 +1,6 @@
+name: stardist
+params:
+  n_rays: 32
+  dist_loss: mae
+  loss_weights: [1.0, 0.2]
+  background_reg: 1.0e-4

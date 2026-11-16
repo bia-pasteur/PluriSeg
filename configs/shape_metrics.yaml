@@ -1,0 +1,21 @@
+# Config for the shapes-metrics radar (pluriseg.tools.shape_metrics.plot):
+#   python -m pluriseg shape_metrics plot --config configs/shape_metrics.yaml
+# CLI flags override the file's values (jsonargparse config merging).
+# The CIS seed batch (5 cis_* datasets, 3 seeds per rep).
+
+pattern: "results/shape-metrics/cis_*.csv"
+repeats: seeds         # seeds | folds
+n_repeats: 3           # expected repeats for the daggers/missing report
+drop_zeros: true       # drop failed runs from the radars and the report
+drop_margin: 0.3       # a run is failed when ap AND pq <= this in every category
+one_seed: true         # one run per (model, dataset): the best eval PQ seed
+root_runs: runs  # where one_seed reads eval/metrics.csv
+fill_opacity: 0.05
+by_dataset: true        # also one radar set per dataset (radar_*_{dataset}.pdf)
+# pooled figures/summaries are always saved twice: image-weighted (plain
+# names) and equal-dataset (_equal suffix, every dataset counts once)
+
+# compute (scoring runs) takes its own CLI flags, e.g.:
+#   python -m pluriseg shape_metrics compute --pattern "*/*" \
+#     --rules_file configs/shapes/rules.yaml
+# (split_name/n_folds default to the first run's config.yaml)

@@ -1,0 +1,48 @@
+# Config for the agglomerate CLI (pluriseg.tools.agglomerate_metrics):
+#   python -m pluriseg agglomerate_metrics --config configs/agglomerate.yaml
+# CLI flags override the file's values (jsonargparse config merging).
+# The CIS seed batch (5 cis_* datasets, 3 seeds per rep).
+
+pattern: "*/*"
+repeats: seeds        # seeds | folds
+n_repeats: 3          # expected repeats for the dagger/missing reports
+latex: true
+drop_zeros: true      # drop failed repeats from the printed/LaTeX tables
+head_metrics: false
+head_perf_margin: 0.02  # PQ margin counting a gate pick as correct
+drop_margin: 0.3       # a repeat is failed when ALL table metrics <= this
+
+# Table layout: which rows, dataset columns and pretty labels the tables
+# carry. Omit a key to keep its built-in default (LATEX_TABLE_ROWS,
+# LATEX_TABLE_COLS, DATASET_LABELS, HEAD_LABELS, LATEX_TABLE_SUBCOLS).
+table:
+  mean_decimals: 2
+  std_decimals: 2
+  datasets:
+    - cis_cellpose
+    - cis_dsb2018
+    - cis_livecell
+    - cis_omnipose
+    - cis_tissuenet
+  dataset_labels:
+    cis_cellpose: 'Cellpose dataset \citecp'
+    cis_dsb2018: 'DSB2018 \citedsb'
+    cis_livecell: 'LIVECell \citelivecell'
+    cis_omnipose: 'Omnipose dataset \citeop'
+    cis_tissuenet: 'TissueNet dataset \citetissuenet'
+  rows:
+    mask: '     Binary mask \citeun'
+    stardist: '     StarDist \citesd'
+    cellpose: '     Cellpose \citecp'
+    embedseg: '     EmbedSeg \citees'
+    omnipose: '     Omnipose \citeop'
+    chimera: '     PluriSeg hybrid'
+  head_labels:
+    mask: Binary mask
+    cellpose: Cellpose
+    omnipose: Omnipose
+    stardist: StarDist
+    embedseg: EmbedSeg
+  subcols:
+    - AP@0.50
+    - PQ

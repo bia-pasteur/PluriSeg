@@ -1,0 +1,6 @@
+name: embedseg
+params:
+  # sigma ceiling, also clamping predictions at the loss boundary
+  # (exp(10*sigma) overflows above ~8.9); null = auto-adapt to the train
+  # patch (1-px ball: 1.072 @ 256, 1.211 @ 512)
+  sigma_ceil: null

@@ -1,0 +1,94 @@
+# Protocol for the CIS runs:
+# - patch 384, cudnn autotune. Budget: 600 epochs x 50 batches/epoch
+#   (limit_train_batches) = 30k optimizer steps for EVERY dataset;
+#   scheduler stays epoch-based so the cosine anneal always completes.
+# - check_val_every_n_epoch is set per dataset in the run command (val cost
+#   is decode-heavy and proportional to n_val; equalizes total val time to
+#   ~5900 val-image-passes): cellpose 8, dsb2018 6, livecell 38, omnipose 4,
+#   tissuenet 58.
+backbone:
+  size: small-128
+  in_ch: 3
+rep:
+  name: mask
+  params: {}
+data:
+  root: ''
+  split_name: ''
+  fold: 0
+  n_folds: 1
+augs:
+  flip_x: true
+  flip_y: true
+  rot90: true
+  affine:
+    scale_range:
+    - 0.8
+    - 1.2
+    rotation: true
+  photometric:
+  - op: Background
+    p: 0.2
+    amplitude:
+    - 0.05
+    - 0.2
+    scale:
+    - 0.055
+    - 0.55
+  - op: Blur
+    p: 0.4
+    sigma:
+    - 0.37
+    - 1.83
+  - op: ShotNoise
+    p: 0.5
+    peak:
+    - 10.0
+    - 100.0
+  - op: Noise
+    p: 0.1
+    sigma:
+    - 0.05
+    - 0.25
+  - op: Gamma
+    p: 0.5
+    channel_mode: independent
+    gamma:
+    - 0.5
+    - 2.0
+  - op: Equalize
+    p: 0.3
+    strength:
+    - 0.0
+    - 0.2
+  - op: ContrastLimits
+    p: 0.5
+    vmin:
+    - -0.2
+    - 0.2
+    vmax:
+    - 0.8
+    - 1.2
+optimizer:
+  lr: 0.0005
+  wd: 1.0e-05
+  epochs: 600
+  warmup_epochs: 10
+train:
+  seed_everything: 0
+  patch: 384
+  batch_size: 8
+  val_batch_size: 4
+  num_workers: 4
+  batches_per_epoch: 50
+  run_dir: runs
+  model_name: null
+  run_name: null
+  save_top_k: 2
+  ckpt_every_n_epochs: 25
+  check_val_every_n_epoch: 8
+  log_every_n_steps: 10
+  gradient_clip_val: 0.0
+  enable_progress_bar: true
+  test_after_training: true
+  monitor: val_pq
