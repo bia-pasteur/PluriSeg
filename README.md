@@ -76,3 +76,27 @@ Per-dataset overrides — swap `cis_cellpose` and its values in the commands abo
 | cis_tissuenet | splits_cis_tissuenet.yaml | 2 | 58 |
 
 Repeats = rerun with a new seed value. Standalone re-eval of a run: `python -m pluriseg eval --ckpt_path runs/...`.
+
+### Input data
+
+Each dataset root holds `train/` and `test/` directories; images and labels pair by stem (the `image_regex`/`label_regex` capture group in `configs/splits/*.yaml`), and every image must have a label — 0 = background:
+
+```
+data/example
+├── test
+│   ├── 0000_img.tif
+│   ├── 0000_masks.tif
+│   ├── 0001_img.tif
+│   ├── 0001_masks.tif
+│   ├── 0002_img.tif
+│   ├── 0002_masks.tif
+│   ...
+└── train
+    ├── 0000_img.tif
+    ├── 0000_masks.tif
+    ├── 0001_img.tif
+    ├── 0001_masks.tif
+    ├── 0002_img.tif
+    ├── 0002_masks.tif
+    ...
+```

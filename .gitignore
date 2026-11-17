@@ -5,3 +5,4 @@ __pycache__
 /data
 .vscode
 pluriseg-cache
+data_sample/SampleDataSet
