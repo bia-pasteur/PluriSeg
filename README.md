@@ -1,4 +1,4 @@
-# PluriSeg
+# <img src="img/logo-pluriseg-400p.png" alt="PluriSeg logo" width="100" align="middle"/> PluriSeg 
 _A Representation-Agnostic Framework to Benchmark and Select Instance Segmentation Representations for Microscopy Images_
 
 This is the code to reproduce the results presented in our ISBI 2027 submitted paper. Code is pending further cleanup and refactor for easier usage.
